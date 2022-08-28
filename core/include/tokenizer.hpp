@@ -1,14 +1,21 @@
 #ifndef _TOKENIZER_HPP_
 #define _TOKENIZER_HPP_
 
+#include <exception.hpp>
 #include <string>
 #include <vector>
 
 namespace Tokenizer {
 
+class TokenizerException : public Exception {
+public:
+  TokenizerException(const std::string &p_msg)
+      : Exception(p_msg, "TokenizerException") {}
+};
+
 enum TokenType {
   // SYMBOLS
-  SYM_TILDE,
+  SYM_TILDE = 0,
   SYM_BANG,
   SYM_AT,
   SYM_SHARP,
@@ -50,6 +57,8 @@ enum TokenType {
   KWD_FOR,
   KWD_WHILE,
   KWD_STRUCT,
+  KWD_YES,
+  KWD_NO,
 
   IDENTIFIER
 };
@@ -58,7 +67,13 @@ struct Token {
   TokenType type;
   const char *begin;
   size_t length;
-  Token(TokenType p_type, const char *p_begin, size_t p_length) : type(p_type), begin(p_begin), length(p_length){}
+  size_t col;
+  size_t row;
+
+  Token(TokenType p_type, const char *p_begin, size_t p_length, size_t p_col,
+        size_t p_row)
+      : type(p_type), begin(p_begin), length(p_length), col(p_col), row(p_row) {
+  }
 };
 
 std::vector<Token> get_tokens(const char *p_str);
