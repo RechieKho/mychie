@@ -34,3 +34,4 @@
 # Project files
 build/
 compile_commands.json
+.cache/
