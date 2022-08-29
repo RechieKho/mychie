@@ -39,7 +39,6 @@ enum TokenType {
   SYM_COLON,
   SYM_COMMA,
   SYM_GT,
-  SYM_PERIOD,
   SYM_LT,
   SYM_SLASH,
   SYM_QUESTION,

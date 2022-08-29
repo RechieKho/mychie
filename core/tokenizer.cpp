@@ -5,7 +5,7 @@
 
 static const char end_word_chars[] = {' ', '\n', '\t', (char)-1};
 static const char *symbol_chars =
-    "~!@#$%^&*()-=+[]{}\\|;:,<.>/?"; // The sequence must be in sync with
+    "~!@#$%^&*()-=+[]{}\\|;:,<>/?"; // The sequence must be in sync with
                                      // TokenType!!
 static const char *init_str_chars = "`\"'";
 
